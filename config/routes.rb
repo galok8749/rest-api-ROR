@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'books/index'
+  # get 'books/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resources :books, only: [:index, :create, :destroy]
+  namespace :api do
+    namespace :v1 do
+      resources :books, only: [:index, :create, :destroy]
+    end
+  end
 end
 
